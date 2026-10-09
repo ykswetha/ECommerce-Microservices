@@ -17,6 +17,7 @@ public class Product {
     private double price;
     private int quantity;
     private String category;
+    private String imageUrl;
 
     public String getCategory() {
 		return category;
@@ -26,10 +27,18 @@ public class Product {
 		this.category = category;
 	}
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
 	public Product() {
     }
 
-	public Product(Long id, String name, String description, double price, int quantity, String category) {
+	public Product(Long id, String name, String description, double price, int quantity, String category, String imageUrl) {
 
 	    this.id = id;
 	    this.name = name;
@@ -37,6 +46,7 @@ public class Product {
 	    this.price = price;
 	    this.quantity = quantity;
 	    this.category = category;
+        this.imageUrl = imageUrl;
 	}
 
     public Long getId() {

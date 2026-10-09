@@ -2,8 +2,8 @@ package com.ecommerce.userservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.ecommerce.userservice.exception.UserNotFoundException;
-import com.ecommerce.userservice.repository.UserRepository;
 import com.ecommerce.userservice.entity.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -12,7 +12,13 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+
+	private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 	public User saveUser(User user) {
+		if (user.getPassword() != null && !user.getPassword().startsWith("$2a$")) {
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+		}
 	    return userRepository.save(user);
 	}
 	public List<User> getAllUsers() {
@@ -32,7 +38,13 @@ public class UserService {
 	    existingUser.setFirstName(updatedUser.getFirstName());
 	    existingUser.setLastName(updatedUser.getLastName());
 	    existingUser.setEmail(updatedUser.getEmail());
-	    existingUser.setPassword(updatedUser.getPassword());
+		if (updatedUser.getPassword() != null && !updatedUser.getPassword().isBlank()) {
+			if (!updatedUser.getPassword().startsWith("$2a$")) {
+				existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
+			} else {
+				existingUser.setPassword(updatedUser.getPassword());
+			}
+		}
 	    existingUser.setPhone(updatedUser.getPhone());
 	    existingUser.setRole(updatedUser.getRole());
 
