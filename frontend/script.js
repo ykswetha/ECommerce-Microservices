@@ -15,6 +15,54 @@ let currentUser = null;
 // Initial Fallback Sample Products (In case database is empty initially)
 const SAMPLE_PRODUCTS = [
     {
+        name: "Kanjeevaram Royal Silk Saree",
+        description: "Handcrafted pure Kanjeevaram silk saree with rich golden zari pallu and matching blouse piece.",
+        price: 189.99,
+        quantity: 20,
+        category: "Sarees & Dresses",
+        imageUrl: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&auto=format&fit=crop"
+    },
+    {
+        name: "Designer Floral Anarkali Suit",
+        description: "Heavy embroidered silk Anarkali gown dress with dupatta for festivals and weddings.",
+        price: 129.50,
+        quantity: 15,
+        category: "Sarees & Dresses",
+        imageUrl: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500&auto=format&fit=crop"
+    },
+    {
+        name: "Cotton Printed Kurti Set",
+        description: "Elegant breathable cotton straight kurti with palazzo trousers and dupatta.",
+        price: 59.99,
+        quantity: 35,
+        category: "Sarees & Dresses",
+        imageUrl: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=500&auto=format&fit=crop"
+    },
+    {
+        name: "Rosewater Hydrating Face Serum",
+        description: "Pure organic botanical serum infused with Vitamin C and Hyaluronic Acid for glowing skin.",
+        price: 34.99,
+        quantity: 50,
+        category: "Beauty & Skincare",
+        imageUrl: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop"
+    },
+    {
+        name: "Matte Velvet Crimson Lipstick Set",
+        description: "Long-lasting waterproof velvet matte lipstick collection with rich pigmentation.",
+        price: 28.50,
+        quantity: 60,
+        category: "Beauty & Skincare",
+        imageUrl: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop"
+    },
+    {
+        name: "Herbal Nourishing Hair Oil",
+        description: "Enriched with cold-pressed coconut oil, amla, and bhringraj for thick healthy hair.",
+        price: 22.00,
+        quantity: 40,
+        category: "Beauty & Skincare",
+        imageUrl: "https://images.unsplash.com/photo-1608248597261-e4d990f31d5c?w=500&auto=format&fit=crop"
+    },
+    {
         name: "Wireless Noise Cancelling Headphones",
         description: "Premium over-ear headphones with active noise cancellation and 30hr battery life.",
         price: 199.99,
@@ -31,28 +79,20 @@ const SAMPLE_PRODUCTS = [
         imageUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop"
     },
     {
-        name: "Designer Leather Jacket",
-        description: "100% genuine black leather jacket with handcrafted stitching and modern fit.",
-        price: 249.00,
-        quantity: 15,
-        category: "Fashion",
-        imageUrl: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&auto=format&fit=crop"
-    },
-    {
         name: "Pro Performance Running Shoes",
         description: "Lightweight breathable mesh sneakers designed for maximum comfort and speed.",
         price: 119.95,
         quantity: 30,
-        category: "Footwear",
+        category: "Footwear & Accessories",
         imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"
     },
     {
-        name: "Ergonomic Mechanical Keyboard",
-        description: "RGB backlit mechanical keyboard with tactile blue switches and aluminum frame.",
+        name: "Designer Leather Handbag",
+        description: "Handcrafted 100% genuine leather tote bag with zippered compartments.",
         price: 89.99,
-        quantity: 50,
-        category: "Accessories",
-        imageUrl: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop"
+        quantity: 25,
+        category: "Footwear & Accessories",
+        imageUrl: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&auto=format&fit=crop"
     }
 ];
 
