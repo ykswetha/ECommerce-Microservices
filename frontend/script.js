@@ -129,9 +129,15 @@ async function loadProducts() {
         const response = await fetch(`${API_PORTS.PRODUCT_SERVICE}/products`);
         if (response.ok) {
             const data = await response.json();
-            productsState = data.length > 0 ? data : [];
-            if (productsState.length === 0) {
-                // Render sample data locally if DB is empty
+            if (data && data.length > 0) {
+                const backendProducts = data.map((p, idx) => ({
+                    ...p,
+                    imageUrl: p.imageUrl || SAMPLE_PRODUCTS[idx % SAMPLE_PRODUCTS.length].imageUrl
+                }));
+                const existingNames = new Set(backendProducts.map(b => b.name.toLowerCase()));
+                const extraSamples = SAMPLE_PRODUCTS.filter(s => !existingNames.has(s.name.toLowerCase())).map((s, i) => ({ ...s, id: 100 + i }));
+                productsState = [...backendProducts, ...extraSamples];
+            } else {
                 productsState = SAMPLE_PRODUCTS.map((p, idx) => ({ ...p, id: idx + 1 }));
             }
         } else {
